@@ -1,11 +1,12 @@
 name: Delövning 4 - Triggers
 
-on:
-  # 1. trigga på commit
-  # 2. trigga på pull request
+on: 
+  push: # kan använda "pull_request" för att den ska köra när det kommer en pull request i main branch
+    branches: 
+      - main # när det kommer en commit i main branchen
 jobs:
   trigger-test:
     runs-on: ubuntu-latest
     steps:
       - name: Echo info        
-        run: echo "Workflow triggat av ..." # TODO: uppdatera texten
+        run: echo "Workflow triggat av nya commits" # TODO: uppdatera texten
