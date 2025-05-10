@@ -1,11 +1,13 @@
   name: Delövning 1 - Minimal Pipeline
   
-  on:
-  # ska startas manuellt
+  on: workflow_dispatch
+  # ska startas manuellt och om man vill kan lägga det push lägge så startas så fort man har pushat en ny kod
   
   jobs:
-    print-info:
-      runs-on: # vilken runner?
+    just-example: 
+      runs-on: ubuntu-latest 
       steps:
-        - name: # namnge steget
-          run: # vad som ska göras
+        - name: show the pipeline started # namnge steget
+          run: echo "Pipeline har startat"
+        - name: show Python version
+          run: python --version # vad som ska göras
