@@ -8,9 +8,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Skapar log.txt
-        run: # 1. skapa filen
+        run: echo "skapats av Nasir" > log.txt # 1. skapa filen
       - name: Laddar upp loggfilen som artifact
-        uses: # 2a. vilken action kan användas här?
-        # 2b. vad heter denna sektion? 
+        uses: action/uppload-artifact@v2 # 2a. vilken action kan användas här? #uppload
+        with:
+        # 2b. vad heter denna sektion? # sektionen "with" kallas för input parameters
           name: loggfil
           path: log.txt
