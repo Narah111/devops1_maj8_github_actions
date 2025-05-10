@@ -7,14 +7,17 @@ jobs:
   list-files:
     runs-on: ubuntu-latest
     steps:
+      - name: clone-repo
+        run: action/checkout@v2
       # 1. hur ser du till att repots filer finns tillgängliga?
-      #    (tips: det finns en action från GitHub själva för detta)
+      - name: lista-repoFiler
+        run: ls -la
       # 2. lista filerna i repot
       
 
   print-message:
+    needs: list-files # vi behöver att "list-files" är färdig kört först innan vi går in i det nästa step
     runs-on: ubuntu-latest
-    # 3. se till att detta jobb endast körs efter att list-files är klart
     steps:
       - name: Meddelande
         run: echo "Detta körs efter list-files"
